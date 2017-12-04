@@ -28,7 +28,7 @@ class ReactPinboard extends React.Component {
     this.childRefs = [];
     // Since we don't have DOM nodes to weigh yet, pretend all children are
     // equal-height for the initial, naive rendering.
-    const childWeights = React.Children.map(() => 1);
+    const childWeights = props.children.map(() => 1);
     this.state = {
       columns: _createColumnOrdering(childWeights, this.getNumCols()),
     };
