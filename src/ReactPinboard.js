@@ -14,8 +14,7 @@ const _createColumnOrdering = function(childWeights, numCols) {
 
   childWeights.forEach((weight, index) => {
     const smallestColumnIndex = columnWeights.indexOf(
-      // only numbers count
-      Math.min.apply(null, columnWeights.filter(column => column === +column))
+      Math.min.apply(null, columnWeights)
     );
     columns[smallestColumnIndex].push(index);
     columnWeights[smallestColumnIndex] += weight;
@@ -51,15 +50,8 @@ class ReactPinboard extends React.Component {
   }
 
   forceRefresh() {
-    const childWeights = this.childRefs.map(c => {
-      if (c) {
-        try {
-          return ReactDOM.findDOMNode(c).children[0].offsetHeight;
-        } catch (e) {
-          console.warn('useless error', e);
-          return 0;
-        }
-      }
+    const childWeights = this.childRefs.map((c) => {
+      return ReactDOM.findDOMNode(c).children[0].offsetHeight;
     });
     const newColumns = _createColumnOrdering(childWeights, this.getNumCols());
 
