@@ -1,6 +1,5 @@
 const PropTypes = require('prop-types');
 const React = require('react');
-const ReactDOM = require('react-dom');
 const debounce = require('lodash.debounce');
 
 const _createColumnOrdering = function(childWeights, numCols) {
@@ -29,7 +28,7 @@ class ReactPinboard extends React.Component {
     this.childRefs = [];
     // Since we don't have DOM nodes to weigh yet, pretend all children are
     // equal-height for the initial, naive rendering.
-    const childWeights = props.children.map(() => 1);
+    const childWeights = React.Children.map(() => 1);
     this.state = {
       columns: _createColumnOrdering(childWeights, this.getNumCols()),
     };
