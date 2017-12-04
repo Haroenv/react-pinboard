@@ -1,6 +1,6 @@
 {
-  "name": "react-pinboard",
-  "version": "0.0.9",
+  "name": "@haroenv/react-pinboard",
+  "version": "0.0.11",
   "description": "Responsive Pinterest-style layouts for React.js",
   "main": "lib/ReactPinboard.js",
   "files": [
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apartmenttherapy/react-pinboard.git"
+    "url": "git+https://github.com/haroenv/react-pinboard.git"
   },
   "keywords": [
     "react",
