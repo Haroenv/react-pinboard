@@ -14,7 +14,8 @@ const _createColumnOrdering = function(childWeights, numCols) {
 
   childWeights.forEach((weight, index) => {
     const smallestColumnIndex = columnWeights.indexOf(
-      Math.min.apply(null, columnWeights)
+      // only numbers count
+      Math.min.apply(null, columnWeights.filter(column => column === +column))
     );
     columns[smallestColumnIndex].push(index);
     columnWeights[smallestColumnIndex] += weight;
